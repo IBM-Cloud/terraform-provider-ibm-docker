@@ -30,13 +30,13 @@ RUN mkdir -p "$GOPATH/src" "$GOPATH/bin" && chmod -R 777 "$GOPATH"
 
 WORKDIR $GOPATH/bin
 
-RUN wget https://releases.hashicorp.com/terraform/0.11.0/terraform_0.11.0_linux_amd64.zip
+RUN wget https://releases.hashicorp.com/terraform/0.11.6/terraform_0.11.6_linux_amd64.zip
 
-RUN unzip terraform_0.11.0_linux_amd64.zip
+RUN unzip terraform_0.11.6_linux_amd64.zip
 
 RUN chmod +x terraform
 
-RUN rm -rf terraform_0.11.0_linux_amd64.zip
+RUN rm -rf terraform_0.11.6_linux_amd64.zip
 
 WORKDIR "/root"
 
@@ -46,7 +46,7 @@ ibm = "/go/bin/terraform-provider-ibm" \n \
 
 WORKDIR $GOPATH/bin
 
-RUN wget https://github.com/IBM-Cloud/terraform-provider-ibm/releases/download/v0.7.0/linux_amd64.zip
+RUN wget https://github.com/IBM-Cloud/terraform-provider-ibm/releases/download/v0.8.0/linux_amd64.zip
 
 RUN unzip linux_amd64.zip
 

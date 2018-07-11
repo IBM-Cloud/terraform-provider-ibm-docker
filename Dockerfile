@@ -46,7 +46,7 @@ ibm = "/go/bin/terraform-provider-ibm" \n \
 
 WORKDIR $GOPATH/bin
 
-RUN wget https://github.com/IBM-Cloud/terraform-provider-ibm/releases/download/v0.11.0/linux_amd64.zip
+RUN wget https://github.com/IBM-Cloud/terraform-provider-ibm/releases/download/v0.11.1/linux_amd64.zip
 
 RUN unzip linux_amd64.zip
 

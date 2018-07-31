@@ -41,15 +41,15 @@ RUN rm -rf terraform_0.11.7_linux_amd64.zip
 WORKDIR "/root"
 
 RUN echo $' providers { \n \
-ibm = "/go/bin/terraform-provider-ibm" \n \
+ibm = "/go/bin/terraform-provider-ibm_v0.11.2" \n \
 }' > /root/.terraformrc
 
 WORKDIR $GOPATH/bin
 
-RUN wget https://github.com/IBM-Cloud/terraform-provider-ibm/releases/download/v0.11.1/linux_amd64.zip
+RUN wget https://github.com/IBM-Cloud/terraform-provider-ibm/releases/download/v0.11.2/linux_amd64.zip
 
 RUN unzip linux_amd64.zip
 
-RUN chmod +x terraform-provider-ibm
+RUN chmod +x terraform-provider-ibm_*
 
 RUN rm -rf linux_amd64.zip

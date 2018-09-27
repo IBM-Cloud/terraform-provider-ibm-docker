@@ -53,3 +53,5 @@ RUN unzip linux_amd64.zip
 RUN chmod +x terraform-provider-ibm_*
 
 RUN rm -rf linux_amd64.zip
+
+RUN echo 'export PS1="\[\e[34m\]IBM\[\e[m\]☁️  # "' > /root/.bashrc

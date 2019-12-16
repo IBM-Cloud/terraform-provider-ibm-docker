@@ -6,8 +6,8 @@ ENV GOLANG_VERSION 1.12.6
 ENV GOLANG_SRC_URL https://golang.org/dl/go$GOLANG_VERSION.src.tar.gz
 ENV GOLANG_SRC_SHA256 c96c5ccc7455638ae1a8b7498a030fe653731c8391c5f8e79590bce72f92b4ca
 
-ENV TERRAFORM_VERSION 0.11.8
-ENV TERRAFORM_IBMCLOUD_VERSION 0.20.0
+ENV TERRAFORM_VERSION 0.12.25
+ENV TERRAFORM_IBMCLOUD_VERSION 1.5.3
 
 ENV PATH $GOPATH/bin:/usr/local/go/bin:$PATH
 
@@ -52,6 +52,8 @@ WORKDIR $GOPATH/bin
 RUN wget https://github.com/IBM-Cloud/terraform-provider-ibm/releases/download/v${TERRAFORM_IBMCLOUD_VERSION}/linux_amd64.zip
 
 RUN unzip linux_amd64.zip
+
+RUN cp linux_amd64/terraform-provider-ibm_* .
 
 RUN chmod +x terraform-provider-ibm_*
 

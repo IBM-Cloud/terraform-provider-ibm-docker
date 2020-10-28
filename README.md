@@ -1,6 +1,6 @@
 # terraform-provider-ibm-docker
 
-This docker file is used to build the image with terraform core version 0.12.25 and terrform ibmcloud provider version 1.13.1.
+This docker file is used to build the image with terraform core version 0.12.25 and terrform ibmcloud provider version 1.14.0.
 
 If you would like to run this container, either do the following:
 

@@ -7,7 +7,7 @@ ENV GOLANG_SRC_URL https://golang.org/dl/go$GOLANG_VERSION.src.tar.gz
 ENV GOLANG_SRC_SHA256 17ba2c4de4d78793a21cc659d9907f4356cd9c8de8b7d0899cdedcef712eba34
 
 ENV TERRAFORM_VERSION 0.13.5
-ENV TERRAFORM_IBMCLOUD_VERSION 1.16.1
+ENV TERRAFORM_IBMCLOUD_VERSION 1.17.0
 
 ENV PATH $GOPATH/bin:/usr/local/go/bin:$PATH
 
@@ -41,7 +41,7 @@ RUN chmod +x terraform
 
 RUN rm -rf terraform_${TERRAFORM_VERSION}_linux_amd64.zip
 
-RUN echo "Terraform v 0.13 installation done"
+RUN echo "Terraform installation done"
 
 WORKDIR "/root"
 
@@ -61,6 +61,6 @@ RUN chmod +x terraform-provider-ibm_*
 
 RUN rm -rf linux_amd64.zip
 
-RUN echo "Terraform Provider IBM Binary installation done"
+RUN echo "IBM Cloud Terraform Provider installation done"
 
 WORKDIR "/root"

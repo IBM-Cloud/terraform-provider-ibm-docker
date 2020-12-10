@@ -6,8 +6,8 @@ ENV GOLANG_VERSION 1.13.12
 ENV GOLANG_SRC_URL https://golang.org/dl/go$GOLANG_VERSION.src.tar.gz
 ENV GOLANG_SRC_SHA256 17ba2c4de4d78793a21cc659d9907f4356cd9c8de8b7d0899cdedcef712eba34
 
-ENV TERRAFORM_VERSION 0.12.25
-ENV TERRAFORM_IBMCLOUD_VERSION 1.16.0
+ENV TERRAFORM_VERSION 0.13.5
+ENV TERRAFORM_IBMCLOUD_VERSION 1.16.1
 
 ENV PATH $GOPATH/bin:/usr/local/go/bin:$PATH
 
@@ -41,13 +41,17 @@ RUN chmod +x terraform
 
 RUN rm -rf terraform_${TERRAFORM_VERSION}_linux_amd64.zip
 
+RUN echo "Terraform v 0.13 installation done"
+
 WORKDIR "/root"
 
-RUN echo $' providers { \n \
-ibm = "/go/bin/terraform-provider-ibm_v${TERRAFORM_IBMCLOUD_VERSION}" \n \
-}' > /root/.terraformrc
+RUN mkdir -p "/root/.terraform.d/plugin-cache/registry.terraform.io/ibm-cloud/ibm/${TERRAFORM_IBMCLOUD_VERSION}/linux_amd64"
 
-WORKDIR $GOPATH/bin
+RUN chmod -R 777 "/root/.terraform.d/plugin-cache/registry.terraform.io/ibm-cloud/ibm/${TERRAFORM_IBMCLOUD_VERSION}/linux_amd64/"
+
+WORKDIR "/root/.terraform.d/plugin-cache/registry.terraform.io/ibm-cloud/ibm/${TERRAFORM_IBMCLOUD_VERSION}/linux_amd64"
+
+ENV TF_PLUGIN_CACHE_DIR="/root/.terraform.d/plugin-cache"
 
 RUN wget https://github.com/IBM-Cloud/terraform-provider-ibm/releases/download/v${TERRAFORM_IBMCLOUD_VERSION}/linux_amd64.zip
 
@@ -56,3 +60,7 @@ RUN unzip linux_amd64.zip
 RUN chmod +x terraform-provider-ibm_*
 
 RUN rm -rf linux_amd64.zip
+
+RUN echo "Terraform Provider IBM Binary installation done"
+
+WORKDIR "/root"

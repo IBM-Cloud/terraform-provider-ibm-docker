@@ -53,13 +53,13 @@ WORKDIR "/root/.terraform.d/plugin-cache/registry.terraform.io/ibm-cloud/ibm/${T
 
 ENV TF_PLUGIN_CACHE_DIR="/root/.terraform.d/plugin-cache"
 
-RUN wget https://github.com/IBM-Cloud/terraform-provider-ibm/releases/download/v${TERRAFORM_IBMCLOUD_VERSION}/linux_amd64.zip
+RUN wget https://github.com/IBM-Cloud/terraform-provider-ibm/releases/download/v${TERRAFORM_IBMCLOUD_VERSION}/terraform-provider-ibm_${TERRAFORM_IBMCLOUD_VERSION}_linux_amd64.zip
 
-RUN unzip linux_amd64.zip
+RUN unzip terraform-provider-ibm_${TERRAFORM_IBMCLOUD_VERSION}_linux_amd64.zip
 
 RUN chmod +x terraform-provider-ibm_*
 
-RUN rm -rf linux_amd64.zip
+RUN rm -rf terraform-provider-ibm_${TERRAFORM_IBMCLOUD_VERSION}_linux_amd64.zip
 
 RUN echo "IBM Cloud Terraform Provider installation done"
 

@@ -1,4 +1,4 @@
-From alpine:3.14.2
+From alpine:3.7
 
 ENV GOPATH /go
 
